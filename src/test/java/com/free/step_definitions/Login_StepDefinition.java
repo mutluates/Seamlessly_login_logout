@@ -12,10 +12,6 @@ public class Login_StepDefinition {
 
     LoginPage loginPage = new LoginPage();
 
-    @Given("user is on the login page of web table app")
-    public void userIsOnTheLoginPageOfWebTableApp() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("seamlessly.url"));
-    }
     @When("user enters librarian username")
     public void user_enters_librarian_username() {
         loginPage.user.sendKeys(ConfigurationReader.getProperty("seamlessly.un"));
@@ -32,5 +28,10 @@ public class Login_StepDefinition {
     @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
         Assert.assertTrue(loginPage.userPage.isDisplayed());
+    }
+
+    @Given("user is on the login page of Seamlessly web app")
+    public void userIsOnTheLoginPageOfSeamlesslyWebApp() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("seamlessly.url"));
     }
 }

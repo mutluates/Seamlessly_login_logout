@@ -4,7 +4,7 @@ Feature: Seamlessly app login page
   And dashboard should be displayed.
 
   Background: user is on the login page
-    Given user is on the login page of web table app
+    Given user is on the login page of Seamlessly web app
 
   Scenario: user can login with correct credentials
     When user enters librarian username
