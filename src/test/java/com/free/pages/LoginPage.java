@@ -23,4 +23,7 @@ public class LoginPage {
     @FindBy(id = "body-user")
     public WebElement userPage;
 
+    @FindBy (xpath = "//p[@class='warning wrongPasswordMsg']")
+    public WebElement wrongUsernameOrPasswordMessage;
+
 }
