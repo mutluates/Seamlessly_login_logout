@@ -48,7 +48,7 @@ public class Login_StepDefinition {
 
     @And("user press the enter key")
     public void userTapTheEnterButton() {
-        loginPage.password.sendKeys(ConfigurationReader.getProperty("seamlessly.pw") + Keys.ENTER);
+        loginPage.password.sendKeys( Keys.ENTER);
     }
 
     @And("user enters invalid password")
@@ -98,5 +98,28 @@ public class Login_StepDefinition {
     public void userShouldSeeThePasswordExplicitly() {
      String actualResult =  loginPage.password.getAttribute("type");
      Assert.assertEquals("text",actualResult);
+    }
+
+    @When("user clicks on 'Forget password' button")
+    public void userClicksOnForgetPasswordButton() {
+        loginPage.forgotPasswordButton.click();
+    }
+
+    @Then("user should see 'Reset password' page open")
+    public void userShouldSeeForgetPasswordPageOpen() {
+       Assert.assertTrue(loginPage.resetPasswordButton.isEnabled());
+    }
+
+    @Then("user should see valid placeholders on Username and Password fields")
+    public void userShouldSeeValidPlaceholdersOnUsernameAndPasswordFields() {
+
+        String expectedUsarname = "Username or email";
+        String expectedPassword = "Password";
+
+        String actualUsername = loginPage.user.getText();
+
+        System.out.println(actualUsername);
+
+
     }
 }

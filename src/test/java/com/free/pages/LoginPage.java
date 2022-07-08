@@ -5,11 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-
-    public LoginPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
+public class LoginPage extends BasePage {
 
     @FindBy(id = "user")
     public WebElement user;
@@ -28,5 +24,22 @@ public class LoginPage {
 
     @FindBy(xpath = "//a[@class='toggle-password']")
     public WebElement eyeButton;
+
+    @FindBy(xpath = "//a[@id='lost-password']")
+    public WebElement forgotPasswordButton;
+
+    @FindBy(xpath = "//input[@id='reset-password-submit']")
+    public WebElement resetPasswordButton;
+
+    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
+    public WebElement userProfileMenu;
+
+    @FindBy(xpath= "//img[@src='/core/img/actions/logout.svg?v=6e136334']")
+    public WebElement logoutButton;
+
+    @FindBy(xpath = "//nav[@id='expanddiv']")
+    public WebElement dropdownMenu;
+
+
 
 }

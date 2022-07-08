@@ -7,7 +7,7 @@ Feature: Seamlessly app login feature
   Background: For the scenarios in the feature file, user is expected to be on login page
     Given user is on the login page of Seamlessly web app
 
-  @TC1
+  @SEAMLES-1948
   Scenario Template: user can login with correct credentials by clicking on login button
     When user enters valid "<username>"
     And user enters correct "<password>"
@@ -21,44 +21,55 @@ Feature: Seamlessly app login feature
       | Employee33 | Employee123 |
       | Employee44 | Employee123 |
 
-  @TC2
+  @SEAMLES-1949
   Scenario: user can login with correct credentials by pressing the enter key
     When user enters valid username
     And user enters valid password
     And user press the enter key
     Then user should see the homepage
 
-  @TC3
+  @SEAMLES-1950
   Scenario: user can not login with invalid username
     When user enters invalid username
     And user enters valid password
     And user clicks on login button
     Then user should see 'Wrong username or password' message
 
-  @TC4
+  @SEAMLES-1951
   Scenario: user can not login with invalid password
     When user enters valid username
     And user enters invalid password
     And user clicks on login button
     Then user should see 'Wrong username or password' message
 
-  @TC5
+  @SEAMLES-1952
   Scenario: user can not login without username
     When user leave empty username input box
     And user enters valid password
     And user clicks on login button
     Then user should see 'Please fill out this field.' message
 
-  @TC6
+  @SEAMLES-1953
   Scenario: user can not login without password
     When user enters valid username
     And user leaves empty password input box
     And user clicks on login button
     Then user should see 'Please fill out this field.'
 
-  @TC7
+  @SEAMLES-1954
   Scenario: user can see the password explicitly
     When user enters valid username
     And user enters valid password
     And user click on the eye button
     Then user should see the password explicitly
+
+  @SEAMLES-1955
+  Scenario: user can go to Reset password page
+    When user clicks on 'Forget password' button
+    Then user should see 'Reset password' page open
+
+  @SEAMLES-1956
+  Scenario: user can see valid placeholders on Username and Password fields
+    When user is on the login page of Seamlessly web app
+    Then user should see valid placeholders on Username and Password fields
+
