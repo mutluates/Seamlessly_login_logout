@@ -1,4 +1,5 @@
 @login
+
 Feature: Seamlessly app login feature
   User story :
   As a user, I should be able to login with correct credentials.

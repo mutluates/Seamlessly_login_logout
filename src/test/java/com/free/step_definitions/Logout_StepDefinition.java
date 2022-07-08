@@ -27,6 +27,7 @@ public class Logout_StepDefinition {
     public void click_on_the_user_profile() {
         loginPage.userProfileMenu.click();
     }
+
     @When("see the dropdown menu")
     public void see_the_dropdown_menu() {
         BrowserUtils.sleep(3);
@@ -36,20 +37,12 @@ public class Logout_StepDefinition {
     public void click_on_log_out_button() {
         loginPage.logoutButton.click();
     }
+
     @Then("user should see logging out from homepage")
     public void user_should_see_logging_out_from_home_page() {
         String expectedTitle = "Seamlessly -QA";
         String actualTitle = Driver.getDriver().getTitle();
         Assert.assertEquals(expectedTitle,actualTitle);
-    }
-
-    @Given("user is on the homepage and logout")
-    public void userIsOnTheHomepageAndLogout() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("seamlessly.url"));
-        loginPage.user.sendKeys(ConfigurationReader.getProperty("seamlessly.un"));
-        loginPage.password.sendKeys(ConfigurationReader.getProperty("seamlessly.pw") + Keys.ENTER);
-        loginPage.userProfileMenu.click();
-        loginPage.logoutButton.click();
     }
 
     @When("click on the step back button")
